@@ -161,14 +161,9 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
-}
-
-
-app.listen(port, function() {
-  console.log("Server has started Succesfully");
-});
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`)
+})
 
 
